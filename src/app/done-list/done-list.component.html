@@ -1,0 +1,24 @@
+
+<div *ngIf="lists.length > 0">
+    <h1>Done Tasks List:</h1>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Check</th>
+            <th scope="col">Task Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Repeat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of lists;let i=index">
+            <th scope="row">
+                <input type="checkbox" checked="true" (change)="moveToUndoneList(i)"/>
+            </th>
+            <td>{{item.taskName}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.repeatTask === 0 ? "No" : "Yes"}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

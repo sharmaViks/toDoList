@@ -1,0 +1,27 @@
+<div>
+    <h1>List:</h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Check</th>
+                <th scope="col">Task Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Repeat</th>
+            </tr>
+        </thead>
+        <tbody  *ngIf="lists.length > 0">
+            <tr *ngFor="let item of lists;let i=index">
+                <th scope="row">
+                    <input type="checkbox" (change)="moveToDoneList(i)" />
+                </th>
+                <td>{{item.taskName}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.repeatTask === 0 ? "No" : "Yes"}}</td>
+            </tr>
+        </tbody>
+
+        <tbody *ngIf="lists.length == 0">
+            <tr>Fill Form to add task</tr>
+        </tbody>
+    </table>
+</div>
